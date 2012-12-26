@@ -3,6 +3,7 @@
 // @namespace   http://tekiomo.hatenablog.com/
 // @description Generate button to get the ePub from CPAN module page.
 // @include     http://search.cpan.org/*.pod
+// @updateURL   https://github.com/tekiomo/CPANePubGenerater/raw/master/CPANePubGenerater.user.js
 // @version     0.1
 // ==/UserScript==
 (function() {
