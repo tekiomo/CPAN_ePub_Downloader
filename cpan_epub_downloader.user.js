@@ -1,10 +1,12 @@
 // ==UserScript==
-// @name        CPANePubGenerater
+// @name        CPAN ePub Downloader
 // @namespace   http://tekiomo.hatenablog.com/
 // @description Generate button to get the ePub from CPAN module page.
 // @include     http://search.cpan.org/*.pod
-// @updateURL   https://github.com/tekiomo/CPANePubGenerater/raw/master/CPANePubGenerater.user.js
+// @updateURL   https://github.com/tekiomo/cpan_epub_downloader/raw/master/cpan_epub_downloader.user.js
 // @version     0.1
+// @license     MIT License
+// @author      tekiomo
 // ==/UserScript==
 (function() {
     var title = document.getElementsByTagName('title')[0] || null;
@@ -16,7 +18,7 @@
     var module_name = title.text.split(' ')[0];
 
     var button = document.createElement('button');
-    button.innerHTML = 'Generate ePub';
+    button.innerHTML = 'get ePub by PerlyBook';
     button.addEventListener('click', function() {
         var form = document.createElement('form');
         form.setAttribute('method', 'post');
