@@ -18,30 +18,30 @@
 
     var module_name = title.text.split(' ')[0];
 
+    var form = document.createElement('form');
+    form.setAttribute('method', 'post');
+    form.setAttribute('action', 'http://perlybook.org/');
+    document.body.appendChild(form);
+
+    [{name: 'in_text',
+      type: 'hidden',
+      value: module_name},
+     {name: 'EPUB',
+      type: 'hidden',
+      value: 'EPUB'},
+     {name: 'book_selection',
+      type: 'hidden',
+      value: 'distribution'}].forEach(function(item) {
+        var input = document.createElement('input');
+        input.setAttribute('name', item.name);
+        input.setAttribute('value', item.value);
+        input.setAttribute('type', item.type);
+        form.appendChild(input);
+    });
+
     var button = document.createElement('button');
     button.innerHTML = 'get ePub by PerlyBook';
     button.addEventListener('click', function() {
-        var form = document.createElement('form');
-        form.setAttribute('method', 'post');
-        form.setAttribute('action', 'http://perlybook.org/');
-        document.body.appendChild(form);
-
-        [{name: 'in_text',
-          type: 'hidden',
-          value: module_name},
-         {name: 'EPUB',
-          type: 'hidden',
-          value: 'EPUB'},
-         {name: 'book_selection',
-          type: 'hidden',
-          value: 'distribution'}].forEach(function(item) {
-            var input = document.createElement('input');
-            input.setAttribute('name', item.name);
-            input.setAttribute('value', item.value);
-            input.setAttribute('type', item.type);
-            form.appendChild(input);
-        });
-
         form.submit();
     });
 
