@@ -5,7 +5,7 @@
 // @include     http://search.cpan.org/*.pod
 // @include     http://search.cpan.org/*.pm
 // @updateURL   https://github.com/tekiomo/CPAN_ePub_Downloader/raw/master/cpan_epub_downloader.user.js
-// @version     0.1
+// @version     0.2
 // @license     MIT License
 // @author      tekiomo
 // ==/UserScript==
@@ -23,15 +23,18 @@
     form.setAttribute('action', 'http://perlybook.org/');
     document.body.appendChild(form);
 
-    [{name: 'in_text',
+    [{name: 'source',
       type: 'hidden',
       value: module_name},
-     {name: 'EPUB',
+     {name: 'target',
       type: 'hidden',
-      value: 'EPUB'},
-     {name: 'book_selection',
+      value: 'epub'},
+     {name: 'mobi_send',
       type: 'hidden',
-      value: 'distribution'}].forEach(function(item) {
+      value: ''},
+     {name: 'always_mail',
+      type: 'hidden',
+      value: ''}].forEach(function(item) {
         var input = document.createElement('input');
         input.setAttribute('name', item.name);
         input.setAttribute('value', item.value);
